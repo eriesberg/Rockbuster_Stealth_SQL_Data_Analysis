@@ -1,3 +1,5 @@
+### SQL Query used to identify the top 10 rental cities:
+
 ```
 SELECT C.city,
        COUNT(customer_id),
