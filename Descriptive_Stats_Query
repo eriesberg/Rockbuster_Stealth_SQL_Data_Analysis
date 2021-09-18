@@ -1,0 +1,23 @@
+SQL Query used to identify some key descriptive statistics of the dataset.
+
+SELECT MIN(release_year) AS min_release_year,
+       MAX(release_year) AS max_release_year,
+       MODE() WITHIN GROUP (
+                            ORDER BY language_id) AS most_frequent_language,
+                           MIN(rental_duration) AS min_rental_duration,
+                           MAX(rental_duration) AS max_rental_duration,
+                           ROUND(AVG(rental_duration), 2) AS avg_rental_duration,
+                           MIN(rental_rate) AS min_rental_rate,
+                           MAX(rental_rate) AS max_rental_rate,
+                           ROUND(AVG(rental_rate), 2) AS avg_rental_rate,
+                           MIN(LENGTH) AS min_length,
+                           MAX(LENGTH) AS max_length,
+                           ROUND(AVG(LENGTH), 2) AS avg_length,
+                           MIN(replacement_cost) AS min_replacement_cost,
+                           MAX(replacement_cost) AS max_replacement_cost,
+                           ROUND(AVG(replacement_cost), 2) AS avg_replacement_cost,
+                           COUNT(rating) AS films_in_rating,
+                           rating
+FROM film
+GROUP BY rating
+ORDER BY films_in_rating DESC
