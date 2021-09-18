@@ -1,6 +1,5 @@
-### SQL Query used to identify the top 10 rental cities:
+SQL Query used to identify the top 10 rental cities:
 
-```
 SELECT C.city,
        COUNT(customer_id),
        D.country
@@ -22,4 +21,3 @@ GROUP BY city,
          country
 ORDER BY COUNT(customer_id) DESC
 LIMIT 10
-```
